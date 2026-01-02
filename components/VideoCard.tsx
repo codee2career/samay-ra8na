@@ -1,4 +1,3 @@
-
 import React from 'react';
 /* Use react-router for Link instead of react-router-dom to resolve "no exported member" error */
 import { Link } from 'react-router';
@@ -27,21 +26,21 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
           <div className="bg-black/80 backdrop-blur-md rounded-md px-3 py-1 text-[10px] font-black text-white border border-white/10 uppercase tracking-widest">
             EP {video.episode}
           </div>
-          <div className="bg-[#F7C600] rounded-md px-3 py-1 text-[10px] font-black text-black uppercase tracking-widest shadow-lg shadow-[#F7C600]/20">
+          <div className="bg-[#D9FF00] rounded-md px-3 py-1 text-[10px] font-black text-black uppercase tracking-widest shadow-lg shadow-[#D9FF00]/20">
             1080P HD
           </div>
         </div>
 
         {/* Bottom Right Duration Badge */}
         <div className="absolute bottom-3 right-3 bg-black/90 backdrop-blur-md rounded-lg px-2.5 py-1 text-[11px] font-black text-white border border-white/10 flex items-center gap-1.5 uppercase tracking-widest">
-          <Clock size={12} className="text-[#F7C600]" />
+          <Clock size={12} className="text-[#D9FF00]" />
           {video.duration}
         </div>
       </div>
 
       <div className="mt-4 px-1">
         <div className="flex justify-between items-start gap-4">
-          <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-tighter italic flex-1 transition-colors">
+          <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-tighter italic flex-1 transition-colors group-hover:text-[#D9FF00]">
             {video.title}
           </h3>
           <span className="text-[11px] font-bold text-slate-400 dark:text-white/30 uppercase tracking-widest pt-1">
@@ -51,7 +50,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
         
         {video.guest && (
           <div className="flex items-center gap-2 mt-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#F7C600] shadow-[0_0_8px_#F7C600]" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#D9FF00] shadow-[0_0_8px_#D9FF00]" />
             <span className="text-[12px] font-black text-slate-400 dark:text-white/40 uppercase tracking-[0.1em] italic">
               GUEST: <span className="text-slate-600 dark:text-white/60">{video.guest}</span>
             </span>

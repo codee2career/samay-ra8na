@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 /* Use react-router for routing components and Link instead of react-router-dom to fix missing export errors in v7 environments */
 import { HashRouter as Router, Routes, Route, Link } from 'react-router';
@@ -7,7 +6,7 @@ import VideoCard from './components/VideoCard';
 import VideoPlayerView from './components/VideoPlayerView';
 import AdUnit from './components/AdUnit';
 import { EPISODES } from './constants';
-import { Play, Info, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Play, Info, ArrowRight, ArrowLeft, Heart, Youtube, Instagram, ExternalLink } from 'lucide-react';
 
 const Home: React.FC = () => {
   const mainScreenThumbnail = "https://drive.google.com/thumbnail?id=1RtacSVIIJsgtVVtgtodDzFC8b3Ioc-qG&sz=w1280";
@@ -48,20 +47,20 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] hover:scale-110"
             alt="India's Got Latent Season Promo"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#0f0f0f] via-slate-50/40 dark:via-[#0f0f0f]/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 dark:from-[#0f0f0f] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] dark:from-[#050505] via-[#FAFAFA]/40 dark:via-[#050505]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAFA] dark:from-[#050505] via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-24">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#F7C600]/20 border border-[#F7C600]/40 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md">
-               <div className="w-2 h-2 rounded-full bg-[#F7C600] animate-pulse shadow-[0_0_10px_#F7C600]" />
-               <span className="text-[#F7C600] text-[11px] font-black uppercase tracking-[0.25em] italic">Season Finale • Out Now</span>
+            <div className="inline-flex items-center gap-2 bg-[#D9FF00]/10 border border-[#D9FF00]/30 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md">
+               <div className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse shadow-[0_0_10px_#D9FF00]" />
+               <span className="text-[#D9FF00] text-[11px] font-black uppercase tracking-[0.25em] italic text-shadow">Season Finale • Out Now</span>
             </div>
             
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] italic mb-6 text-slate-900 dark:text-white">
               INDIA'S GOT <br />
-              <span className="text-[#F7C600] drop-shadow-[0_5px_15px_rgba(247,198,0,0.4)]">LATENT</span>
+              <span className="text-[#D9FF00] drop-shadow-[0_0_20px_rgba(217,255,0,0.5)]">LATENT</span>
             </h1>
             
             <p className="mt-4 text-slate-600 dark:text-white/80 font-bold text-base md:text-lg leading-relaxed line-clamp-3 max-w-xl uppercase tracking-tight italic">
@@ -71,7 +70,7 @@ const Home: React.FC = () => {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link 
                 to={`/watch/ep8`}
-                className="flex items-center gap-3 bg-[#F7C600] text-black px-10 py-5 rounded-2xl font-black uppercase text-sm tracking-widest shadow-2xl shadow-[#F7C600]/30 hover:scale-105 transition-transform italic"
+                className="flex items-center gap-3 bg-[#D9FF00] text-black px-10 py-5 rounded-2xl font-black uppercase text-sm tracking-widest shadow-2xl shadow-[#D9FF00]/40 hover:scale-105 transition-transform italic"
               >
                 <Play fill="black" size={20} />
                 Watch Finale
@@ -95,15 +94,15 @@ const Home: React.FC = () => {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-4">
-               <div className="w-1.5 h-8 bg-[#F7C600] rounded-full" />
+               <div className="w-1.5 h-8 bg-[#D9FF00] rounded-full shadow-[0_0_10px_#D9FF00]" />
                <h2 className="text-2xl font-black uppercase tracking-tighter italic text-slate-900 dark:text-white">
-                 Episodes <span className="text-[#F7C600]">{pageIndex * pageSize + 1} - {Math.min((pageIndex + 1) * pageSize, EPISODES.length)}</span>
+                 Episodes <span className="text-[#D9FF00]">{pageIndex * pageSize + 1} - {Math.min((pageIndex + 1) * pageSize, EPISODES.length)}</span>
                </h2>
             </div>
             <div className="h-px flex-1 bg-slate-200 dark:bg-white/5 mx-8" />
             <div className="flex items-center gap-2">
                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-white/20">Page</span>
-               <span className="text-[10px] font-black text-[#F7C600]">{pageIndex + 1} / {totalPages}</span>
+               <span className="text-[10px] font-black text-[#D9FF00]">{pageIndex + 1} / {totalPages}</span>
             </div>
           </div>
           
@@ -142,7 +141,7 @@ const Home: React.FC = () => {
                 onClick={goToPrevPage}
                 className="group flex items-center gap-4 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 px-8 py-5 rounded-2xl transition-all italic"
               >
-                <ArrowLeft size={20} className="text-slate-400 dark:text-white/40 group-hover:text-[#F7C600]" />
+                <ArrowLeft size={20} className="text-slate-400 dark:text-white/40 group-hover:text-[#D9FF00]" />
                 <span className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white">Previous</span>
               </button>
             )}
@@ -150,7 +149,7 @@ const Home: React.FC = () => {
             {pageIndex < totalPages - 1 && (
               <button 
                 onClick={goToNextPage}
-                className="group flex items-center gap-6 bg-[#F7C600] text-black px-10 py-5 rounded-2xl transition-all hover:scale-105 shadow-2xl shadow-[#F7C600]/20 italic"
+                className="group flex items-center gap-6 bg-[#D9FF00] text-black px-10 py-5 rounded-2xl transition-all hover:scale-105 shadow-2xl shadow-[#D9FF00]/40 italic"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-[9px] font-black uppercase tracking-[0.1em] opacity-60">Next Up</span>
@@ -171,7 +170,7 @@ const Home: React.FC = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-50 dark:bg-[#0f0f0f] text-slate-900 dark:text-white selection:bg-[#F7C600] selection:text-black transition-colors duration-300">
+      <div className="min-h-screen bg-[#FAFAFA] dark:bg-midnight text-slate-900 dark:text-white selection:bg-[#D9FF00] selection:text-black transition-colors duration-300">
         <Header />
         <main>
           <Routes>
@@ -180,23 +179,47 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
-        <footer className="py-24 border-t border-slate-200 dark:border-white/5 px-6 text-center bg-slate-100 dark:bg-black/40">
-           <div className="mb-8 flex justify-center items-center gap-3">
-              <div className="w-8 h-8 rounded bg-[#F7C600] flex items-center justify-center font-black text-black text-lg skew-x-[-12deg]">L</div>
-              <span className="font-black tracking-tighter uppercase text-xl italic text-slate-900 dark:text-white">Latent<span className="text-[#F7C600]">TV</span></span>
-           </div>
-           <p className="text-slate-400 dark:text-white/20 text-[11px] font-black uppercase tracking-[0.4em] mb-4 italic">Unfiltered • Raw • Latent</p>
-           <p className="text-slate-400 dark:text-white/10 text-[9px] font-bold uppercase tracking-widest">© 2024 Samay Raina Productions. All rights reserved.</p>
-        </footer>
+        <footer className="py-24 border-t border-slate-200 dark:border-white/5 px-6 text-center bg-slate-100 dark:bg-black/40 relative overflow-hidden">
+           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-[#D9FF00]/30 to-transparent" />
+           
+           <div className="max-w-4xl mx-auto">
+             <div className="mb-12 flex flex-col items-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#D9FF00] flex items-center justify-center font-black text-black text-3xl skew-x-[-12deg] shadow-2xl shadow-[#D9FF00]/40 mb-6 transition-transform hover:scale-110 duration-500">L</div>
+                <span className="font-black tracking-tighter uppercase text-3xl italic text-slate-900 dark:text-white">
+                  Latent<span className="text-[#D9FF00]">TV</span>
+                </span>
+                <p className="text-slate-400 dark:text-white/20 text-[10px] font-black uppercase tracking-[0.5em] mt-2 italic">Unfiltered • Raw • Latent</p>
+             </div>
 
-        <a 
-          href="https://t.me/example_channel" 
-          className="fixed bottom-8 right-8 w-16 h-16 bg-[#F7C600] text-black rounded-3xl flex items-center justify-center shadow-3xl shadow-[#F7C600]/40 z-50 md:hidden active:scale-90 transition-all rotate-3 hover:rotate-0"
-        >
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.35-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.36-.48 1-.72 3.94-1.72 6.57-2.85 7.89-3.4 3.76-1.56 4.54-1.83 5.05-1.84.11 0 .36.03.52.16.13.11.17.26.19.37.02.12.02.24.01.37z"/>
-          </svg>
-        </a>
+             <div className="mb-12 p-8 rounded-[2rem] bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-xl inline-block mx-auto backdrop-blur-sm">
+                <h4 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-white/40 mb-4">Hosted By</h4>
+                <p className="text-xl md:text-2xl font-black uppercase italic tracking-tighter text-slate-900 dark:text-white mb-2">Samay Raina</p>
+                <p className="text-xs font-black text-[#D9FF00] uppercase tracking-[0.2em] mb-6">Comedian, YouTuber & Host of India's Got Latent</p>
+                <div className="flex justify-center gap-4">
+                   <a href="https://www.instagram.com/maisamayhoon?igsh=M2JwNG5vMHBwd24y" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-[#D9FF00]/20 transition-colors text-slate-600 dark:text-white/60 hover:text-[#D9FF00]"><Instagram size={20} /></a>
+                   <a href="https://www.youtube.com/channel/UCAov2BBv1ZJav0c_yHEciAw" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-[#D9FF00]/20 transition-colors text-slate-600 dark:text-white/60 hover:text-[#D9FF00]"><Youtube size={20} /></a>
+                   <a href="#" className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-[#D9FF00]/20 transition-colors text-slate-600 dark:text-white/60 hover:text-[#D9FF00]"><Heart size={20} /></a>
+                </div>
+             </div>
+
+             <div className="max-w-xl mx-auto space-y-8">
+                <div className="space-y-2">
+                  <h5 className="text-[#D9FF00] text-sm font-black uppercase tracking-[0.3em] italic">All Credit Goes To Samay Raina</h5>
+                  <p className="text-slate-400 dark:text-white/30 text-[11px] font-bold leading-relaxed px-4">
+                    This is not an official website. Just a fun project to keep the <span className="text-[#D9FF00]">Samay Raina Legacy Alive!</span>
+                  </p>
+                </div>
+                
+                <div className="flex items-center justify-center gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-slate-300 dark:text-white/10">
+                   <span className="hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
+                   <div className="w-1 h-1 rounded-full bg-slate-200 dark:bg-white/5" />
+                   <span className="hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors">Terms of Service</span>
+                   <div className="w-1 h-1 rounded-full bg-slate-200 dark:bg-white/5" />
+                   <span>© 2024 LatentTV Fan Project</span>
+                </div>
+             </div>
+           </div>
+        </footer>
       </div>
     </Router>
   );
