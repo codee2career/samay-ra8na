@@ -86,10 +86,8 @@ const VideoPlayerView: React.FC = () => {
               allow="autoplay; fullscreen"
               title={video.title}
             ></iframe>
-            {/* Theatrical Vignette */}
             <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] opacity-50" />
             
-            {/* Quality Indicator Badge Over Player */}
             <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-[10px] font-black uppercase tracking-widest text-[#F7C600] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
               Stream: {quality}
             </div>
@@ -128,7 +126,6 @@ const VideoPlayerView: React.FC = () => {
                 Download Episode
               </a>
 
-              {/* Quality Selection Menu */}
               <div className="relative flex-1 min-w-[150px]" ref={menuRef}>
                 <button 
                   onClick={() => setIsQualityMenuOpen(!isQualityMenuOpen)}
@@ -171,7 +168,6 @@ const VideoPlayerView: React.FC = () => {
               </button>
             </div>
 
-            {/* Author/Creator Section */}
             <div className="mt-12 flex items-center justify-between bg-white/[0.03] p-6 rounded-[2.5rem] border border-white/5 backdrop-blur-md">
               <div className="flex items-center gap-5">
                 <div className="w-16 h-16 rounded-3xl bg-white/10 flex items-center justify-center border border-white/10 overflow-hidden skew-x-[-6deg] shadow-xl">
@@ -190,9 +186,8 @@ const VideoPlayerView: React.FC = () => {
               </button>
             </div>
 
-            {/* Ad Unit before Description */}
             <div className="mt-12">
-               <AdUnit />
+               <AdUnit slot="8617765071" format="autorelaxed" />
             </div>
 
             {/* Context/Description */}
@@ -205,6 +200,18 @@ const VideoPlayerView: React.FC = () => {
                 <p className="text-white/60 text-lg leading-relaxed font-bold italic">
                   {video.description}
                 </p>
+                
+                {/* NEW: In-Article Ad Placement */}
+                <div className="my-10">
+                  <AdUnit 
+                    slot="4315557985" 
+                    format="fluid" 
+                    layout="in-article" 
+                    textAlign="center"
+                    label="Continue Reading" 
+                  />
+                </div>
+
                 <div className="mt-10 flex flex-wrap gap-3">
                   {['SAMAY RAINA', 'LATENT TALENT', 'UNFILTERED', 'COMEDY'].map(tag => (
                     <span key={tag} className="text-[#F7C600] text-[10px] font-black uppercase tracking-[0.2em] bg-[#F7C600]/5 px-5 py-2.5 rounded-xl border border-[#F7C600]/10 hover:bg-[#F7C600]/20 cursor-pointer transition-colors">#{tag}</span>
@@ -254,7 +261,6 @@ const VideoPlayerView: React.FC = () => {
             ))}
           </div>
 
-          {/* Social Community Card */}
           <div className="mt-12 lg:sticky lg:top-24 bg-gradient-to-br from-[#F7C600] to-[#FFD700] p-8 rounded-[2.5rem] text-black shadow-2xl shadow-[#F7C600]/10 overflow-hidden relative">
              <div className="absolute top-0 right-0 w-32 h-32 bg-black/5 rounded-full -mr-16 -mt-16 blur-3xl" />
              <h4 className="font-black uppercase text-2xl leading-[0.9] italic mb-4">THE LATENT <br />COMMUNITY</h4>

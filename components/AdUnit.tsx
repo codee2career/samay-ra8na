@@ -12,7 +12,9 @@ interface AdUnitProps {
   slot?: string;
   format?: 'auto' | 'fluid' | 'autorelaxed';
   layoutKey?: string;
+  layout?: string; // For 'in-article' layout
   label?: string;
+  textAlign?: 'left' | 'center' | 'right';
 }
 
 const AdUnit: React.FC<AdUnitProps> = ({ 
@@ -20,7 +22,9 @@ const AdUnit: React.FC<AdUnitProps> = ({
   slot = "8617765071", 
   format = "autorelaxed",
   layoutKey,
-  label = "Advertisement"
+  layout,
+  label = "Advertisement",
+  textAlign
 }) => {
   useEffect(() => {
     try {
@@ -32,7 +36,7 @@ const AdUnit: React.FC<AdUnitProps> = ({
     } catch (e) {
       console.error("AdSense error:", e);
     }
-  }, [slot]); // Re-run if slot changes (useful if navigation stays on same layout)
+  }, [slot]); // Re-run if slot changes
 
   return (
     <div className={`ad-container my-4 w-full overflow-hidden ${className}`}>
@@ -46,9 +50,10 @@ const AdUnit: React.FC<AdUnitProps> = ({
       <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 overflow-hidden min-h-[100px]">
         <ins
           className="adsbygoogle"
-          style={{ display: 'block' }}
+          style={{ display: 'block', textAlign: textAlign || 'inherit' }}
           data-ad-format={format}
           data-ad-layout-key={layoutKey}
+          data-ad-layout={layout}
           data-ad-client="ca-pub-9959298755857565"
           data-ad-slot={slot}
         ></ins>
