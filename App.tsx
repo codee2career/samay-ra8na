@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import VideoCard from './components/VideoCard';
 import VideoPlayerView from './components/VideoPlayerView';
+import AdUnit from './components/AdUnit';
 import { EPISODES } from './constants';
 import { Play, Info, ArrowRight, ArrowLeft } from 'lucide-react';
 
@@ -84,6 +85,11 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Ad Placement between Hero and Episodes */}
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <AdUnit />
+      </div>
 
       {/* Main Grid Section with Batch Pagination */}
       <div className="max-w-7xl mx-auto px-6 -mt-16 relative z-20">

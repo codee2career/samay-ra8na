@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { EPISODES } from '../constants';
+import AdUnit from './AdUnit';
 import { Share2, Download, ArrowLeft, CheckCircle2, Clock, Settings, Check } from 'lucide-react';
 
 const VideoPlayerView: React.FC = () => {
@@ -187,6 +188,11 @@ const VideoPlayerView: React.FC = () => {
               <button className="hidden sm:block bg-white text-black px-10 py-4 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-white/10 italic">
                 Subscribe
               </button>
+            </div>
+
+            {/* Ad Unit before Description */}
+            <div className="mt-12">
+               <AdUnit />
             </div>
 
             {/* Context/Description */}
