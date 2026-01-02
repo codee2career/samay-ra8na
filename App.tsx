@@ -9,10 +9,9 @@ import { EPISODES } from './constants';
 import { Play, Info, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const Home: React.FC = () => {
-  // Using the high-fidelity Season Collage / Finale thumbnail for the main screen as requested
   const mainScreenThumbnail = "https://i.ytimg.com/vi/78_e4vXw7rM/maxresdefault.jpg";
   const [pageIndex, setPageIndex] = useState(0);
-  const pageSize = 3;
+  const pageSize = 6; // Increased page size to show more content + ads
 
   const totalPages = Math.ceil(EPISODES.length / pageSize);
   const currentEpisodes = EPISODES.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
@@ -40,7 +39,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="pb-20">
-      {/* Hero Section - Using Main Screen Thumbnail */}
+      {/* Hero Section */}
       <section className="relative w-full h-[85vh] min-h-[600px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -50,7 +49,6 @@ const Home: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0f] via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-yellow-900/5 mix-blend-overlay pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-24">
@@ -86,9 +84,9 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placement between Hero and Episodes */}
+      {/* Hero Bottom Ad - Using standard Autorelaxed Slot */}
       <div className="max-w-7xl mx-auto px-6 mb-12">
-        <AdUnit />
+        <AdUnit slot="8617765071" format="autorelaxed" />
       </div>
 
       {/* Main Grid Section with Batch Pagination */}
@@ -108,10 +106,34 @@ const Home: React.FC = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 min-h-[400px]">
-            {currentEpisodes.map((video) => (
-              <VideoCard key={video.id} video={video} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {currentEpisodes.map((video, index) => (
+              <React.Fragment key={video.id}>
+                <VideoCard video={video} />
+                {/* Insert In-Feed Ad after every 3 videos to maintain engagement */}
+                {(index + 1) % 3 === 0 && index !== currentEpisodes.length - 1 && (
+                   <div className="col-span-1 sm:col-span-2 lg:col-span-3">
+                      <AdUnit 
+                        slot="8378076011" 
+                        format="fluid" 
+                        layoutKey="-6t+ed+2i-1n-4w"
+                        label="Promoted Content"
+                        className="my-4"
+                      />
+                   </div>
+                )}
+              </React.Fragment>
             ))}
+            
+            {/* Always add an ad at the end of the current feed */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-3">
+                <AdUnit 
+                  slot="8378076011" 
+                  format="fluid" 
+                  layoutKey="-6t+ed+2i-1n-4w"
+                  label="More for you"
+                />
+            </div>
           </div>
 
           {/* Navigation Controls */}
@@ -152,7 +174,6 @@ const App: React.FC = () => {
     <Router>
       <div className="min-h-screen bg-[#0f0f0f] text-white selection:bg-[#F7C600] selection:text-black">
         <Header />
-        
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
