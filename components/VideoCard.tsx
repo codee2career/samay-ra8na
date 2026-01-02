@@ -11,15 +11,15 @@ interface VideoCardProps {
 const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
   return (
     <Link to={`/watch/${video.id}`} className="group block relative w-full">
-      <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-black border border-white/5 shadow-2xl transition-all duration-300">
+      <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-slate-200 dark:bg-black border border-slate-200 dark:border-white/5 shadow-xl dark:shadow-2xl transition-all duration-300">
         <img 
           src={video.thumbnail} 
           alt={video.title}
-          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+          className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
         />
         
         {/* Shadow Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent dark:from-black/80" />
 
         {/* Top Left Badges */}
         <div className="absolute top-3 left-3 flex gap-2">
@@ -40,10 +40,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
 
       <div className="mt-4 px-1">
         <div className="flex justify-between items-start gap-4">
-          <h3 className="text-base font-black text-white uppercase tracking-tighter italic flex-1">
+          <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-tighter italic flex-1 transition-colors">
             {video.title}
           </h3>
-          <span className="text-[11px] font-bold text-white/30 uppercase tracking-widest pt-1">
+          <span className="text-[11px] font-bold text-slate-400 dark:text-white/30 uppercase tracking-widest pt-1">
             {video.size}
           </span>
         </div>
@@ -51,8 +51,8 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
         {video.guest && (
           <div className="flex items-center gap-2 mt-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[#F7C600] shadow-[0_0_8px_#F7C600]" />
-            <span className="text-[12px] font-black text-white/40 uppercase tracking-[0.1em] italic">
-              GUEST: <span className="text-white/60">{video.guest}</span>
+            <span className="text-[12px] font-black text-slate-400 dark:text-white/40 uppercase tracking-[0.1em] italic">
+              GUEST: <span className="text-slate-600 dark:text-white/60">{video.guest}</span>
             </span>
           </div>
         )}

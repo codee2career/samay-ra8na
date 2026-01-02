@@ -11,7 +11,7 @@ import { Play, Info, ArrowRight, ArrowLeft } from 'lucide-react';
 const Home: React.FC = () => {
   const mainScreenThumbnail = "https://i.ytimg.com/vi/78_e4vXw7rM/maxresdefault.jpg";
   const [pageIndex, setPageIndex] = useState(0);
-  const pageSize = 6; // Increased page size to show more content + ads
+  const pageSize = 6; 
 
   const totalPages = Math.ceil(EPISODES.length / pageSize);
   const currentEpisodes = EPISODES.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
@@ -47,8 +47,8 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] hover:scale-110"
             alt="India's Got Latent Season Promo"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0f] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#0f0f0f] via-slate-50/40 dark:via-[#0f0f0f]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 dark:from-[#0f0f0f] via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-24">
@@ -58,12 +58,12 @@ const Home: React.FC = () => {
                <span className="text-[#F7C600] text-[11px] font-black uppercase tracking-[0.25em] italic">Season Finale • Out Now</span>
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] italic mb-6">
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] italic mb-6 text-slate-900 dark:text-white">
               INDIA'S GOT <br />
               <span className="text-[#F7C600] drop-shadow-[0_5px_15px_rgba(247,198,0,0.4)]">LATENT</span>
             </h1>
             
-            <p className="mt-4 text-white/80 font-bold text-base md:text-lg leading-relaxed line-clamp-3 max-w-xl uppercase tracking-tight italic">
+            <p className="mt-4 text-slate-600 dark:text-white/80 font-bold text-base md:text-lg leading-relaxed line-clamp-3 max-w-xl uppercase tracking-tight italic">
               Experience the chaos as Samay Raina and a legendary panel of judges discover India's most hidden and hilariously latent talents.
             </p>
             
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
                 <Play fill="black" size={20} />
                 Watch Finale
               </Link>
-              <button className="flex items-center gap-3 bg-white/5 backdrop-blur-xl text-white border border-white/10 px-8 py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-white/10 transition-colors italic">
+              <button className="flex items-center gap-3 bg-white/10 dark:bg-white/5 backdrop-blur-xl text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 px-8 py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition-colors italic">
                 <Info size={20} />
                 Series Info
               </button>
@@ -84,24 +84,24 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Hero Bottom Ad - Using standard Autorelaxed Slot */}
+      {/* Hero Bottom Ad */}
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <AdUnit slot="8617765071" format="autorelaxed" />
       </div>
 
-      {/* Main Grid Section with Batch Pagination */}
+      {/* Main Grid Section */}
       <div className="max-w-7xl mx-auto px-6 -mt-16 relative z-20">
         <div className="mb-16">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-4">
                <div className="w-1.5 h-8 bg-[#F7C600] rounded-full" />
-               <h2 className="text-2xl font-black uppercase tracking-tighter italic">
+               <h2 className="text-2xl font-black uppercase tracking-tighter italic text-slate-900 dark:text-white">
                  Episodes <span className="text-[#F7C600]">{pageIndex * pageSize + 1} - {Math.min((pageIndex + 1) * pageSize, EPISODES.length)}</span>
                </h2>
             </div>
-            <div className="h-px flex-1 bg-white/5 mx-8" />
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/5 mx-8" />
             <div className="flex items-center gap-2">
-               <span className="text-[10px] font-black uppercase tracking-widest text-white/20">Page</span>
+               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-white/20">Page</span>
                <span className="text-[10px] font-black text-[#F7C600]">{pageIndex + 1} / {totalPages}</span>
             </div>
           </div>
@@ -110,7 +110,6 @@ const Home: React.FC = () => {
             {currentEpisodes.map((video, index) => (
               <React.Fragment key={video.id}>
                 <VideoCard video={video} />
-                {/* Insert In-Feed Ad after every 3 videos to maintain engagement */}
                 {(index + 1) % 3 === 0 && index !== currentEpisodes.length - 1 && (
                    <div className="col-span-1 sm:col-span-2 lg:col-span-3">
                       <AdUnit 
@@ -125,7 +124,6 @@ const Home: React.FC = () => {
               </React.Fragment>
             ))}
             
-            {/* Always add an ad at the end of the current feed */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-3">
                 <AdUnit 
                   slot="8378076011" 
@@ -141,10 +139,10 @@ const Home: React.FC = () => {
             {pageIndex > 0 && (
               <button 
                 onClick={goToPrevPage}
-                className="group flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-5 rounded-2xl transition-all italic"
+                className="group flex items-center gap-4 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 px-8 py-5 rounded-2xl transition-all italic"
               >
-                <ArrowLeft size={20} className="text-white/40 group-hover:text-[#F7C600]" />
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/60 group-hover:text-white">Previous</span>
+                <ArrowLeft size={20} className="text-slate-400 dark:text-white/40 group-hover:text-[#F7C600]" />
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white">Previous</span>
               </button>
             )}
 
@@ -172,7 +170,7 @@ const Home: React.FC = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-[#0f0f0f] text-white selection:bg-[#F7C600] selection:text-black">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0f0f0f] text-slate-900 dark:text-white selection:bg-[#F7C600] selection:text-black transition-colors duration-300">
         <Header />
         <main>
           <Routes>
@@ -181,16 +179,15 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
-        <footer className="py-24 border-t border-white/5 px-6 text-center bg-black/40">
+        <footer className="py-24 border-t border-slate-200 dark:border-white/5 px-6 text-center bg-slate-100 dark:bg-black/40">
            <div className="mb-8 flex justify-center items-center gap-3">
               <div className="w-8 h-8 rounded bg-[#F7C600] flex items-center justify-center font-black text-black text-lg skew-x-[-12deg]">L</div>
-              <span className="font-black tracking-tighter uppercase text-xl italic">Latent<span className="text-[#F7C600]">TV</span></span>
+              <span className="font-black tracking-tighter uppercase text-xl italic text-slate-900 dark:text-white">Latent<span className="text-[#F7C600]">TV</span></span>
            </div>
-           <p className="text-white/20 text-[11px] font-black uppercase tracking-[0.4em] mb-4 italic">Unfiltered • Raw • Latent</p>
-           <p className="text-white/10 text-[9px] font-bold uppercase tracking-widest">© 2024 Samay Raina Productions. All rights reserved.</p>
+           <p className="text-slate-400 dark:text-white/20 text-[11px] font-black uppercase tracking-[0.4em] mb-4 italic">Unfiltered • Raw • Latent</p>
+           <p className="text-slate-400 dark:text-white/10 text-[9px] font-bold uppercase tracking-widest">© 2024 Samay Raina Productions. All rights reserved.</p>
         </footer>
 
-        {/* Floating Mobile Telegram Button */}
         <a 
           href="https://t.me/example_channel" 
           className="fixed bottom-8 right-8 w-16 h-16 bg-[#F7C600] text-black rounded-3xl flex items-center justify-center shadow-3xl shadow-[#F7C600]/40 z-50 md:hidden active:scale-90 transition-all rotate-3 hover:rotate-0"

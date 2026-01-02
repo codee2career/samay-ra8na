@@ -28,7 +28,6 @@ const AdUnit: React.FC<AdUnitProps> = ({
 }) => {
   useEffect(() => {
     try {
-      // Small timeout to ensure the DOM is ready and prevent potential race conditions in SPAs
       const timer = setTimeout(() => {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       }, 50);
@@ -36,18 +35,18 @@ const AdUnit: React.FC<AdUnitProps> = ({
     } catch (e) {
       console.error("AdSense error:", e);
     }
-  }, [slot]); // Re-run if slot changes
+  }, [slot]);
 
   return (
     <div className={`ad-container my-4 w-full overflow-hidden ${className}`}>
       {label && (
         <div className="flex items-center gap-2 mb-2 px-2 opacity-30">
-          <div className="h-[1px] flex-1 bg-white"></div>
-          <span className="text-[8px] font-black text-white uppercase tracking-[0.3em]">{label}</span>
-          <div className="h-[1px] flex-1 bg-white"></div>
+          <div className="h-[1px] flex-1 bg-slate-900 dark:bg-white"></div>
+          <span className="text-[8px] font-black text-slate-900 dark:text-white uppercase tracking-[0.3em]">{label}</span>
+          <div className="h-[1px] flex-1 bg-slate-900 dark:bg-white"></div>
         </div>
       )}
-      <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 overflow-hidden min-h-[100px]">
+      <div className="bg-slate-100 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-2xl p-4 overflow-hidden min-h-[100px] transition-colors">
         <ins
           className="adsbygoogle"
           style={{ display: 'block', textAlign: textAlign || 'inherit' }}
