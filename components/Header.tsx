@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+/* Use react-router for NavLink instead of react-router-dom to fix missing export error in v7+ environments */
+import { NavLink } from 'react-router';
 import { Search, User, Sun, Moon } from 'lucide-react';
 
 const Header: React.FC = () => {

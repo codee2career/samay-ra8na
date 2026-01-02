@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+/* Use react-router for Link instead of react-router-dom to resolve "no exported member" error */
+import { Link } from 'react-router';
 import { Video } from '../types';
 import { Clock } from 'lucide-react';
 

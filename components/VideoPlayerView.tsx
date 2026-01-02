@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+/* Use react-router for useParams, useNavigate, and Link to fix missing export errors in current environment */
+import { useParams, useNavigate, Link } from 'react-router';
 import { EPISODES } from '../constants';
 import AdUnit from './AdUnit';
 import { Share2, Download, ArrowLeft, CheckCircle2, Clock, Settings, Check } from 'lucide-react';

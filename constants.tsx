@@ -10,7 +10,7 @@ export const EPISODES: Video[] = [
     driveId: "1Vf512OE3EV2B6O7pgrwJpiXL87lnTLvE",
     duration: "43:24",
     size: "423.72 MB",
-    thumbnail: "https://i.ytimg.com/vi/P7E91fD_y2w/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1Vf512OE3EV2B6O7pgrwJpiXL87lnTLvE&sz=w1280",
     author: "Samay Raina",
     guest: "@raftaarmusic"
   },
@@ -22,7 +22,7 @@ export const EPISODES: Video[] = [
     driveId: "1gJvpUovsSIwrdABZdGUQb5Ob4Xax5aKI",
     duration: "1:06:09",
     size: "622.9 MB",
-    thumbnail: "https://i.ytimg.com/vi/mR_B_n-x0yU/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1gJvpUovsSIwrdABZdGUQb5Ob4Xax5aKI&sz=w1280",
     author: "Samay Raina",
     guest: "@GamerFleet"
   },
@@ -34,7 +34,7 @@ export const EPISODES: Video[] = [
     driveId: "1q4K94ckNP0dkQmRDZnF7g3Z4H0Pcd2tT",
     duration: "58:12",
     size: "540.2 MB",
-    thumbnail: "https://i.ytimg.com/vi/L0m9y4xG9rI/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1q4K94ckNP0dkQmRDZnF7g3Z4H0Pcd2tT&sz=w1280",
     author: "Samay Raina",
     guest: "@TanmayBhat"
   },
@@ -46,7 +46,7 @@ export const EPISODES: Video[] = [
     driveId: "1sFQGfjZ0b7rGq7OqlQf1gOGlhGo0WPhc",
     duration: "1:12:45",
     size: "710.5 MB",
-    thumbnail: "https://i.ytimg.com/vi/Tq9XW6mU-lA/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1sFQGfjZ0b7rGq7OqlQf1gOGlhGo0WPhc&sz=w1280",
     author: "Samay Raina",
     guest: "@MunawarFaruqui"
   },
@@ -58,7 +58,7 @@ export const EPISODES: Video[] = [
     driveId: "1SbsbGuuT83LbcpwxESBqzHl7ROdBNG0B",
     duration: "55:30",
     size: "490.1 MB",
-    thumbnail: "https://i.ytimg.com/vi/7XjWl6qO8Wc/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1SbsbGuuT83LbcpwxESBqzHl7ROdBNG0B&sz=w1280",
     author: "Samay Raina",
     guest: "@VipulGoyal"
   },
@@ -70,7 +70,7 @@ export const EPISODES: Video[] = [
     driveId: "18bJ5w3gIg4Io_9LRfakgyoD5sPP6E1np",
     duration: "1:02:15",
     size: "595.4 MB",
-    thumbnail: "https://i.ytimg.com/vi/_k1-Oq6uM3w/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=18bJ5w3gIg4Io_9LRfakgyoD5sPP6E1np&sz=w1280",
     author: "Samay Raina",
     guest: "@NamanArora"
   },
@@ -82,7 +82,7 @@ export const EPISODES: Video[] = [
     driveId: "16qH7GzUIeLhoASEEwvLK_3zdAyIx2Umu",
     duration: "1:08:40",
     size: "650.8 MB",
-    thumbnail: "https://i.ytimg.com/vi/t_Y4x_R6l-Y/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=16qH7GzUIeLhoASEEwvLK_3zdAyIx2Umu&sz=w1280",
     author: "Samay Raina",
     guest: "@KushaKapila"
   },
@@ -94,7 +94,7 @@ export const EPISODES: Video[] = [
     driveId: "1RtacSVIIJsgtVVtgtodDzFC8b3Ioc-qG",
     duration: "1:20:10",
     size: "810.2 MB",
-    thumbnail: "https://i.ytimg.com/vi/78_e4vXw7rM/maxresdefault.jpg",
+    thumbnail: "https://drive.google.com/thumbnail?id=1RtacSVIIJsgtVVtgtodDzFC8b3Ioc-qG&sz=w1280",
     author: "Samay Raina",
     guest: "FINALE"
   }

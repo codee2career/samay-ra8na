@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+/* Use react-router for routing components and Link instead of react-router-dom to fix missing export errors in v7 environments */
+import { HashRouter as Router, Routes, Route, Link } from 'react-router';
 import Header from './components/Header';
 import VideoCard from './components/VideoCard';
 import VideoPlayerView from './components/VideoPlayerView';
@@ -9,7 +10,7 @@ import { EPISODES } from './constants';
 import { Play, Info, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const Home: React.FC = () => {
-  const mainScreenThumbnail = "https://i.ytimg.com/vi/78_e4vXw7rM/maxresdefault.jpg";
+  const mainScreenThumbnail = "https://drive.google.com/thumbnail?id=1RtacSVIIJsgtVVtgtodDzFC8b3Ioc-qG&sz=w1280";
   const [pageIndex, setPageIndex] = useState(0);
   const pageSize = 6; 
 
